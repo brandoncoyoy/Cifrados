@@ -58,7 +58,7 @@ public class MetodoSHA1 extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtSHA1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtCadena, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                        .addComponent(txtCadena, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1)))
                 .addContainerGap())
@@ -100,7 +100,8 @@ public class MetodoSHA1 extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         CifradoSHA1 sha1 = new CifradoSHA1();
-        txtSHA1.setText(sha1.SHA1(txtCadena.getText()));
+        CifradoMD5 md5 = new CifradoMD5();
+        txtSHA1.setText(md5.MD5(txtCadena.getText()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
