@@ -65,9 +65,17 @@ public class CifradoMD5 {
         }
         return valor;
     }
+    private int Suma(int a,int b)
+    {
+        return (a&0xFFFFFFFF + b&0xFFFFFFFF);
+    }
+    private int Resta(int a,int b)
+    {
+        return (a&0xFFFFFFFF - b&0xFFFFFFFF);
+    }
     private int Rotar(int n,int c)
     {
-        return Integer.rotateLeft(n, c);
+        return Integer.rotateLeft(n, c)|Integer.rotateRight(n, (32-c));
     }
     public String MD5(String cadena)
     {
@@ -117,12 +125,12 @@ public class CifradoMD5 {
            {
                if(j<=15)
                {
-                   F = D^(B&(C^D));
+                   F = (B&C)|(~B&D);
                    g =j;
                }
                else if(j<=31)
                {
-                   F = C^(D&(B^C));
+                   F = (D&B)|(~D&C);
                    g = (5*j+1)%16;
                }
                else if(j<=47)
@@ -138,15 +146,15 @@ public class CifradoMD5 {
                int t=D;
                D =C;
                C =B;
-               B = B+Rotar(A+F+K[j]+grupo.get(g),s[j]);
+               B = ((B&0xffffffff)+(Rotar((A&0xffffffff)+(F&0xffffffff)+(K[j]&0xffffffff)+(grupo.get(g)&0xffffffff),s[j])&0xffffffff));
                A =t;
            }
-           a0 = a0|A;
-           b0 = b0|B;
-           c0 = c0|C;
-           d0 = d0|D;
+           a0 = ((a0&0xffffffff)+(A&0xffffffff));
+           b0 = ((b0&0xffffffff)+(B&0xffffffff));
+           c0 = ((c0&0xffffffff)+(C&0xffffffff));
+           d0 = ((d0&0xffffffff)+(D&0xffffffff));
         }
-        return Integer.toHexString(a0)+" "+Integer.toHexString(b0)+" "+Integer.toHexString(c0)+" "+Integer.toHexString(d0);
+        return Integer.toHexString(a0)+Integer.toHexString(b0)+Integer.toHexString(c0)+Integer.toHexString(d0);
     }
     
 }

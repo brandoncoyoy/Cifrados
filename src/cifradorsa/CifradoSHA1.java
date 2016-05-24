@@ -134,18 +134,18 @@ public class CifradoSHA1 {
            int e = H4.get(H4.size()-1);
            for (int j=0; j<80;j++)
            {
-               int t = (Rotar(a,5)+f(j,b,c,d)+e+K(j)+grupo.get(j))&0xffffffff;
+               int t = ((Rotar(a,5)&0xffffffff)+(f(j,b,c,d)&0xffffffff)+(e&0xffffffff)+(K(j)&0xffffffff)+(grupo.get(j)&0xffffffff));
                e = d;
                d = c;
                c = Rotar(b,30);
                b = a;
                a = t;
            }
-           H0.add((a+H0.get(H0.size()-1))&0xffffffff);
-           H1.add((b+H1.get(H1.size()-1))&0xffffffff);
-           H2.add((c+H2.get(H2.size()-1))&0xffffffff);
-           H3.add((d+H3.get(H3.size()-1))&0xffffffff);
-           H4.add((e+H4.get(H4.size()-1))&0xffffffff);
+           H0.add(((a&0xffffffff)+(H0.get(H0.size()-1)&0xffffffff)));
+           H1.add(((b&0xffffffff)+(H1.get(H1.size()-1)&0xffffffff)));
+           H2.add(((c&0xffffffff)+(H2.get(H2.size()-1)&0xffffffff)));
+           H3.add(((d&0xffffffff)+(H3.get(H3.size()-1)&0xffffffff)));
+           H4.add(((e&0xffffffff)+(H4.get(H4.size()-1)&0xffffffff)));
         }
         int h0 = H0.get(H0.size()-1);
         int h1 = H1.get(H1.size()-1);

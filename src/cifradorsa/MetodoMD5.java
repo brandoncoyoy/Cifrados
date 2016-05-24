@@ -9,12 +9,12 @@ package cifradorsa;
  *
  * @author Usuario
  */
-public class MetodoSHA1 extends javax.swing.JInternalFrame {
+public class MetodoMD5 extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form MetodoSHA1
+     * Creates new form MetodoMD5
      */
-    public MetodoSHA1() {
+    public MetodoMD5() {
         initComponents();
     }
 
@@ -29,20 +29,20 @@ public class MetodoSHA1 extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         txtCadena = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        txtSHA1 = new javax.swing.JTextField();
+        btnMD5 = new javax.swing.JButton();
+        txtMD5 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
 
-        jButton1.setText("SHA-1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnMD5.setText("MD5");
+        btnMD5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnMD5ActionPerformed(evt);
             }
         });
 
-        txtSHA1.setEditable(false);
+        txtMD5.setEditable(false);
 
         jLabel1.setText("HASH:");
 
@@ -56,11 +56,11 @@ public class MetodoSHA1 extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtSHA1))
+                        .addComponent(txtMD5))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtCadena, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+                        .addComponent(txtCadena, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(btnMD5)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -69,10 +69,10 @@ public class MetodoSHA1 extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCadena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(btnMD5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSHA1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMD5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -97,18 +97,18 @@ public class MetodoSHA1 extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnMD5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMD5ActionPerformed
         // TODO add your handling code here:
-        CifradoSHA1 sha1 = new CifradoSHA1();
-        txtSHA1.setText(sha1.SHA1(txtCadena.getText()));
-    }//GEN-LAST:event_jButton1ActionPerformed
+        CifradoMD5 md5 = new CifradoMD5();
+        txtMD5.setText(md5.MD5(txtCadena.getText()));
+    }//GEN-LAST:event_btnMD5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnMD5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtCadena;
-    private javax.swing.JTextField txtSHA1;
+    private javax.swing.JTextField txtMD5;
     // End of variables declaration//GEN-END:variables
 }
